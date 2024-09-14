@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="bootstrap.min.css">
+     <link rel="stylesheet" href="main.css">
+     <link rel="stylesheet" href="styles.css">
+    <style> 
+        
+    #top_social a {
+            color: #ACD7C3;
+        }
+     </style>
+    
+    
+  
+</head>
+<body>
+    <header>
+        <div id="top_bar">
+            <div id="logo">
+                <a href="index.html">
+            <img src="images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div id="top_social">
+                <a href="http://instagram.com/#" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.behance.net/cassandragomez6" target="_blank"><i class="fa fa-behance"></i></a>
+                <a href="https://www.linkedin.com/in/cassiegomez01/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+    
+    
+      <nav id="menu-bar">
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                 <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    
+      <!-- Contact Start -->
+    <div class="container-xxl pb-5" id="contact">
+        <div class="container py-5">
+            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <h1 class="title display-5 mb-0">Let's Work Together!</h1>
+                </div>
+            
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="mb-2">Located:</p>
+                    <h3 class="fw-medium">Boulder, Colorado, USA</h3>
+                    <hr class="w-100">
+                    <p class="mb-2">Call me:</p>
+                    <h3 class="fw-medium">+1 361 648 4966</h3>
+                    <hr class="w-100">
+                    <p class="mb-2">Mail me:</p>
+                    <h3 class="fw-medium">connect@cassandragomez.com</h3>
+                    <hr class="w-100">
+                </div>
+                <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <form action="contact.php" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    
+    
+
+					
+     <footer>
+    <div class="footer-left">
+        <h6>© Cassandra Gomez | Integrated Writing & Design</h6>
+    </div>
+ 
+    <div class="footer-right">
+        <a href="http://instagram.com/#" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.behance.net/cassandragomez6" target="_blank"><i class="fa fa-behance"></i></a>
+        <a href="https://www.linkedin.com/in/cassiegomez01/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    </div>
+</footer>
+    
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+ 
+</body>
+</html>
