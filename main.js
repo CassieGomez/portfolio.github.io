@@ -1,185 +1,168 @@
-/*
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
+  
+  "use strict";
 
-	var	$window = $(window),
-		$body = $('body');
+/* 
+   CounterUp
+   ========================================================================== */
+    $('.counter').counterUp({
+      time: 500
+    });
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ]
-		});
+/* 
+   MixitUp
+   ========================================================================== */
+  $('#portfolio').mixItUp();
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+/* 
+   Clients Sponsor 
+   ========================================================================== */
+    var owl = $("#clients-scroller");
+    owl.owlCarousel({
+      items:5,
+      itemsTablet:3,
+      margin:90,
+      stagePadding:90,
+      smartSpeed:450,
+      itemsDesktop : [1199,4],
+      itemsDesktopSmall : [980,3],
+      itemsTablet: [768,3],
+      itemsTablet: [767,2],
+      itemsTabletSmall: [480,2],
+      itemsMobile : [479,1],
+    });
 
-	// Touch?
-		if (browser.mobile)
-			$body.addClass('is-touch');
+  /* Testimonials Carousel 
+  ========================================================*/
+    var owl = $("#testimonials");
+      owl.owlCarousel({
+        navigation: false,
+        pagination: true,
+        slideSpeed: 1000,
+        stopOnHover: true,
+        autoPlay: true,
+        items: 2,
+        itemsDesktop : [1199,2],
+        itemsDesktopSmall : [980,2],
+        itemsTablet: [768,1],
+        itemsTablet: [767,1],
+        itemsTabletSmall: [480,1],
+        itemsMobile : [479,1],
+      });   
 
-	// Forms.
-		var $form = $('form');
+/* 
+   Touch Owl Carousel
+   ========================================================================== */
+    var owl = $(".touch-slider");
+    owl.owlCarousel({
+      navigation: false,
+      pagination: true,
+      slideSpeed: 1000,
+      stopOnHover: true,
+      autoPlay: true,
+      items: 1,
+      itemsDesktopSmall: [1024, 1],
+      itemsTablet: [600, 1],
+      itemsMobile: [479, 1]
+    });
 
-		// Auto-resizing textareas.
-			$form.find('textarea').each(function() {
+    $('.touch-slider').find('.owl-prev').html('<i class="lni-chevron-left"></i>');
+    $('.touch-slider').find('.owl-next').html('<i class="lni-chevron-right"></i>');
 
-				var $this = $(this),
-					$wrapper = $('<div class="textarea-wrapper"></div>'),
-					$submits = $this.find('input[type="submit"]');
+/* 
+   Sticky Nav
+   ========================================================================== */
+    $(window).on('scroll', function() {
+        if ($(window).scrollTop() > 200) {
+            $('.header-top-area').addClass('menu-bg');
+        } else {
+            $('.header-top-area').removeClass('menu-bg');
+        }
+    });
 
-				$this
-					.wrap($wrapper)
-					.attr('rows', 1)
-					.css('overflow', 'hidden')
-					.css('resize', 'none')
-					.on('keydown', function(event) {
+/* 
+   VIDEO POP-UP
+   ========================================================================== */
+    $('.video-popup').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false,
+    });
 
-						if (event.keyCode == 13
-						&&	event.ctrlKey) {
+/* 
+   Back Top Link
+   ========================================================================== */
+    var offset = 200;
+    var duration = 500;
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > offset) {
+        $('.back-to-top').fadeIn(400);
+      } else {
+        $('.back-to-top').fadeOut(400);
+      }
+    });
 
-							event.preventDefault();
-							event.stopPropagation();
+    $('.back-to-top').on('click',function(event) {
+      event.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 600);
+      return false;
+    })
 
-							$(this).blur();
+/* 
+   One Page Navigation & wow js
+   ========================================================================== */
+    //Initiat WOW JS
+    new WOW().init();
 
-						}
+    // one page navigation 
+    $('.main-navigation').onePageNav({
+            currentClass: 'active'
+    }); 
 
-					})
-					.on('blur focus', function() {
-						$this.val($.trim($this.val()));
-					})
-					.on('input blur focus --init', function() {
+    $(window).on('load', function() {
+       
+        $('body').scrollspy({
+            target: '.navbar-collapse',
+            offset: 195
+        });
 
-						$wrapper
-							.css('height', $this.height());
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 200) {
+                $('.fixed-top').addClass('menu-bg');
+            } else {
+                $('.fixed-top').removeClass('menu-bg');
+            }
+        });
 
-						$this
-							.css('height', 'auto')
-							.css('height', $this.prop('scrollHeight') + 'px');
+    });
+/* Nivo Lightbox
+  ========================================================*/   
+   $('.lightbox').nivoLightbox({
+    effect: 'fadeScale',
+    keyboardNav: true,
+  });
 
-					})
-					.on('keyup', function(event) {
 
-						if (event.keyCode == 9)
-							$this
-								.select();
+/* stellar js
+  ========================================================*/
+  $.stellar({
+    horizontalScrolling: false,
+    verticalOffset: 30,
+    responsive: false
+  });
 
-					})
-					.triggerHandler('--init');
+/* 
+   Page Loader
+   ========================================================================== */
+   $(window).on('load',function() {
+      "use strict";
+      $('#loader').fadeOut();
+    });
 
-				// Fix.
-					if (browser.name == 'ie'
-					||	browser.mobile)
-						$this
-							.css('max-height', '10em')
-							.css('overflow-y', 'auto');
+}(jQuery));
 
-			});
-
-	// Menu.
-		var $menu = $('#menu');
-
-		$menu.wrapInner('<div class="inner"></div>');
-
-		$menu._locked = false;
-
-		$menu._lock = function() {
-
-			if ($menu._locked)
-				return false;
-
-			$menu._locked = true;
-
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
-
-			return true;
-
-		};
-
-		$menu._show = function() {
-
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
-
-		};
-
-		$menu._hide = function() {
-
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
-
-		};
-
-		$menu._toggle = function() {
-
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
-
-		};
-
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
-				event.stopPropagation();
-			})
-			.on('click', 'a', function(event) {
-
-				var href = $(this).attr('href');
-
-				event.preventDefault();
-				event.stopPropagation();
-
-				// Hide.
-					$menu._hide();
-
-				// Redirect.
-					if (href == '#menu')
-						return;
-
-					window.setTimeout(function() {
-						window.location.href = href;
-					}, 350);
-
-			})
-			.append('<a class="close" href="#menu">Close</a>');
-
-		$body
-			.on('click', 'a[href="#menu"]', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				// Toggle.
-					$menu._toggle();
-
-			})
-			.on('click', function(event) {
-
-				// Hide.
-					$menu._hide();
-
-			})
-			.on('keydown', function(event) {
-
-				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
-
-			});
-
-})(jQuery);
